@@ -11,6 +11,11 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+        - id: api-route
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+
       default-filters:
         - AddRequestHeader=X-Gateway, SmartSystem
   security:
